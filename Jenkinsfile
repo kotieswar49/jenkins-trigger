@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'git --version'
+                sh 'java -version'
 	        }	
         }
     }	
