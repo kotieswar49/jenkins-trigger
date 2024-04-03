@@ -5,19 +5,16 @@ pipeline {
         githubPush()
     }
     stages {
-        stage('check'){
+        stage('checkout code'){
             steps {
-		echo 'Hello world'
+                git branch: 'main', url: 'https://github.com/kotieswar49/jenkins-trigger.git'
 	    }
 	} 
     
     	stage('build') {
             steps {
-                sh 'python --version'
-                sh 'git --version'
-                sh 'java -version'
+                sh 'python demo.py'
 	        }	
         }
     }	
 }
-
