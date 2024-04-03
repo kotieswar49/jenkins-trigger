@@ -15,14 +15,14 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/kotieswar49/jenkins-trigger.git'
             }
-	    }
+	}
 	    
         stage('build') {
             steps {
                 script {
                     docker.build(env.dockerImage) 
                 }
-	        }	
+	    }	
         }
     }	
 }
