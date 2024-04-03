@@ -2,10 +2,9 @@ pipeline {
     agent any
 
     environment {
-        registry = "koticoder/python-jenkins"
+        dockerImage = "koticoder/python-jenkins"
         registryCredential = "Docker_hub"
-        githubCredential = "Git_hub"
-        dockerImage = ''
+        githubCredential = "Git_hub"        
     }
     
     triggers {
@@ -17,13 +16,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/kotieswar49/jenkins-trigger.git'
             }
 	    }
-	
-    
-    	stage('build') {
+	    
+        stage('build') {
             steps {
                 script {
-                    img = registry + "${env.BUILD_ID}"
-                    dockerImage = docker.build("${img}")
+                    docker.build(env.dockerImage) 
                 }
 	        }	
         }
