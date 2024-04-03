@@ -14,6 +14,7 @@ pipeline {
     	stage('build') {
             steps {
                 sh 'python --version'
+                sh 'git --version'
 	    }	
         }
     }	
